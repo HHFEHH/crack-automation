@@ -253,6 +253,7 @@ def looks(wb,pk):
   flatBaseHeight = 150
   imgCell = 2
   infoCell = 10
+  imgNumber = 1
   cellB = chr(66)
   cellC = chr(67)
   cellD = chr(68)
@@ -312,7 +313,7 @@ def looks(wb,pk):
         sheet.add_image(img,cellB + str(imgCell))
         sheet.add_image(flatImg, cellD + str(imgCell))
         
-        sheet[cellB+str(infoCell)] = '사진번호: ' + str(crackObj.id)
+        sheet[cellB+str(infoCell)] = '사진번호: ' + str(imgNumber)
         sheet[cellB+str(infoCell+1)] = '위치: ' + str(crack.floor) + ' ' + str(crack.location)
         sheet[cellB+str(infoCell+2)] = '손상종류: ' + str(crack.crackType)
         sheet[cellD+str(infoCell+2)] = '손상규모: ' + str(crack.crackSize)
@@ -404,7 +405,7 @@ def looks(wb,pk):
         sheet.add_image(img,cellB + str(imgCell))
         sheet.add_image(flatImg, cellD + str(imgCell))
         
-        sheet[cellB+str(infoCell)] = '사진번호: ' + str(crackObj.id)
+        sheet[cellB+str(infoCell)] = '사진번호: ' + str(imgNumber)
         sheet[cellB+str(infoCell+1)] = '위치: ' + str(crack.floor) + ' ' + str(crack.location)
         sheet[cellB+str(infoCell+2)] = '손상종류: ' + str(crack.crackType)
         sheet[cellD+str(infoCell+2)] = '손상규모: ' + str(crack.crackSize)
@@ -439,4 +440,7 @@ def looks(wb,pk):
         sheet[cellD+str(infoCell+3)].border = bottom_right_bold_border
 
         sheet.sheet_view.view = "pageBreakPreview"
+        imgCell += 14
+        infoCell += 14
+    imgNumber += 1
   return wb
